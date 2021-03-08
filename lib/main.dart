@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:animated_splash/animated_splash.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:frontliners/EntryPhase.dart';
@@ -29,7 +30,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: EntryPhase(),
+      home: AnimatedSplash(
+        imagePath: 'assets/images/frontliners_logo.png',
+        home: EntryPhase(),
+        duration: 2500,
+        type: AnimatedSplashType.StaticDuration,
+      ),
     );
   }
 }

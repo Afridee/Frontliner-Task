@@ -11,12 +11,29 @@ class User {
 
 class FirePhoneAuth extends GetxController{
 
+  String phoneNumber = '';
   String userID = '';
   String authExceptionMessageWhileLoggingWithPhone = '';
   String authExceptionMessageWhileLoggingWithOTP = '';
   String verificationID = '';
   int resendingToken;
   bool loading = false;
+  bool resendButtonActivated = true;
+
+  updatephoneNumber(String number){
+    phoneNumber = number;
+    update();
+  }
+
+  void pauseResending() {
+    Timer(Duration(seconds: 20),(){
+      resendButtonActivated = !resendButtonActivated ;
+      update();
+    });
+    resendButtonActivated  = !resendButtonActivated;
+    update();
+  }
+
 
   void pauseInput() {
     Timer(Duration(seconds: 10),(){
@@ -79,6 +96,7 @@ class FirePhoneAuth extends GetxController{
     final fba.PhoneCodeSent smsSent = (String verId, int forceResend){
        verificationID = verId;
        resendingToken = forceResend;
+       pauseResending();
        update();
     };
 

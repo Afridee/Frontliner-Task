@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "940639463582",
+    "project_id": "frontlinersdemo",
+    "storage_bucket": "frontlinersdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940639463582:android:0c316ddfba7f0eb9e7b38f",
+        "android_client_info": {
+          "package_name": "com.ahmedafridee.frontliners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940639463582-h6t0r74e1smql6hj1kicvad7c0rd1cno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ahmedafridee.frontliners",
+            "certificate_hash": "551d0f1adba9bce89221694bf704848d4c67f670"
+          }
+        },
+        {
+          "client_id": "940639463582-6pbd9dtqvlpiotorm2i6jbk6vfatsm4j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk9L2tM-HA2jT5Ww7oSNZGTEQci0bCFWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940639463582-6pbd9dtqvlpiotorm2i6jbk6vfatsm4j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,6 +41,7 @@ dependencies:
   pin_code_fields: ^6.0.1
   modal_progress_hud: ^0.1.3
   animated_splash: ^1.0.0
+  lazy_load_scrollview:
 
 
 dev_dependencies:

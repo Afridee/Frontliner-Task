@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:frontliners/models/MyNewsModel.dart';
 import 'package:frontliners/statecontrollers/MyNews.dart';
 import 'package:get/get.dart';
-
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'Webview.dart';
 
 class MyNewsView extends StatefulWidget {
@@ -31,11 +31,14 @@ class _MyNewsViewState extends State<MyNewsView> {
         width: MediaQuery.of(context).size.width,
         child: GetBuilder<MyNews>(
           builder: (newsController){
-            return newsController.newsLoaded ? ListView.builder(
-               itemCount: newsController.myNews.articles.length,
-               itemBuilder: (context, index){
-                return HeadLineElement(article : newsController.myNews.articles[index]);
-               },
+            return newsController.newsLoaded ? LazyLoadScrollView(
+              onEndOfPage: () => MyNewscontroller.getNews(),
+              child: ListView.builder(
+                 itemCount: newsController.myNews.articles.length,
+                 itemBuilder: (context, index){
+                  return HeadLineElement(article : newsController.myNews.articles[index]);
+                 },
+              ),
             ) : Center(
               child: Text("Loading..."),
             );

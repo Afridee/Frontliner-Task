@@ -9,15 +9,24 @@ class MyNews extends GetxController{
 
   bool newsLoaded = false;
   MyNewsModel myNews = new MyNewsModel();
+  int page = 0;
+
 
   getNews() async{
     try {
-      newsLoaded = false;
-      var client = http.Client();
-      final response = await client.get("http://newsapi.org/v2/everything?q=medicine&from=2021-02-08&sortBy=publishedAt&apiKey=76dc3fcd11e246a89064157411ec33b1");
-      myNews = MyNewsModel.fromJson(jsonDecode(response.body));
-      newsLoaded = true;
-      update();
+      if(page>100){
+        page = 100;
+        update();
+      }
+      if(page<=100){
+        page++;
+        newsLoaded = false;
+        var client = http.Client();
+        final response = await client.get("http://newsapi.org/v2/everything?q=doctor&page=$page&apiKey=76dc3fcd11e246a89064157411ec33b1");
+        myNews = MyNewsModel.fromJson(jsonDecode(response.body));
+        newsLoaded = true;
+        update();
+      }
     } catch (e) {
       print(e);
     }

@@ -14,11 +14,7 @@ class MyNews extends GetxController{
 
   getNews() async{
     try {
-      if(page>100){
-        page = 100;
-        update();
-      }
-      if(page<=100){
+      if(page<100){
         page++;
         newsLoaded = false;
         var client = http.Client();
